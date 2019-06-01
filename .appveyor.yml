@@ -65,7 +65,7 @@ deploy_script:
   - ps: |
       $ErrorActionPreference = 'Continue'
       $deploy = ( $env:APPVEYOR_REPO_TAG -eq $true )
-      if ( $deploy )
+      if ($deploy)
       {
         Invoke-Build -Task Publish
       }
