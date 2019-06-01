@@ -42,10 +42,6 @@ test_script:
 #      deployment configuration   #
 #---------------------------------#
 
-before_deploy:
-  - ps: |
-      ${env:ReleaseNotes} = ( Import-Module $env:APPVEYOR_BUILD_FOLDER -Force -PassThru ).ReleaseNotes
-
 deploy:
   - provider: GitHub
     tag: $(APPVEYOR_REPO_TAG_NAME)
