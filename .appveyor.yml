@@ -10,7 +10,7 @@ environment:
 install:
   - ps: |
       Write-Verbose -Message "PowerShell version $($PSVersionTable.PSVersion)" -Verbose
-      Install-Module -Name 'Invoke-Build' -Force
+      Install-Module -Name 'InvokeBuild' -Force
       Install-Module -Name 'platyPS' -Force
       Install-Module -Name 'Pester' -Force
       Install-Module -Name 'PSScriptAnalyzer' -Force
@@ -21,7 +21,7 @@ install:
 
 before_build:
   - ps: |
-      Import-Module -Name 'Invoke-Build'
+      Import-Module -Name 'InvokeBuild'
       Import-Module -Name 'platyPS'
       Import-Module -Name 'Pester'
       Import-Module -Name 'PSScriptAnalyzer'
