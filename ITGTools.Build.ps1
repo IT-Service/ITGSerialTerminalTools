@@ -47,7 +47,7 @@ Add-BuildTask Analyze EnsurePSScriptAnalyzer, {
 
 # Task for running all Pester tests within the project.
 Add-BuildTask Test EnsurePester, {
-    $Results = Invoke-Pester -Path $BuildRoot\tests -PassThru
+    $Results = Invoke-Pester -Path $BuildRoot\tests -PassThru -Finalize:( $Env:CI -eq 'True' )
     Assert-Build($Results.FailedCount -eq 0) ('Failed "{0}" Pester tests.' -f $Results.FailedCount)
 }
 
