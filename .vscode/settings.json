@@ -1,5 +1,20 @@
 {
-  "editor.tabSize": 2,
-  "editor.insertSpaces": true,
-  "files.trimTrailingWhitespace": true
+    "files.exclude": {
+        ".git": true,
+        "node_modules/": true,
+        "DscResource.Tests/": true
+    },
+    "editor.formatOnSave": true,
+    "powershell.codeFormatting.openBraceOnSameLine": false,
+    "powershell.codeFormatting.newLineAfterOpenBrace": false,
+    "powershell.codeFormatting.newLineAfterCloseBrace": true,
+    "powershell.codeFormatting.whitespaceBeforeOpenBrace": true,
+    "powershell.codeFormatting.whitespaceBeforeOpenParen": true,
+    "powershell.codeFormatting.whitespaceAroundOperator": true,
+    "powershell.codeFormatting.whitespaceAfterSeparator": true,
+    "powershell.codeFormatting.ignoreOneLineBlock": false,
+    "powershell.codeFormatting.preset": "Custom",
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "powershell.scriptAnalysis.settingsPath": "PSScriptAnalyzerSettings.psd1"
 }
