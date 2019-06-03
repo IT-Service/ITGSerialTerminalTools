@@ -2,8 +2,11 @@
     Thanks for submitting a Pull Request (PR) to this project.
     Your contribution to this project is greatly appreciated!
 
-    You may remove this comment block, and the other comment blocks, but please
-    keep the headers and the task list.
+    Please make sure the PR title is short but a descriptive summary of the PR,
+    e.g "Add common test to test the length of the relative file path".
+
+    You may remove this comment block, and the other comment blocks,
+    but please keep the headers and the task list.
 -->
 #### Pull Request (PR) description
 <!--
@@ -28,15 +31,11 @@
     Change to [x] for each task in the task list that applies to your PR.
     For those task that don't apply to you PR, leave those as is.
 -->
-
 - [ ] Added an entry under the Unreleased section of the change log in the CHANGELOG.md.
       Entry should say what was changed, and how that affects users (if applicable).
-- [ ] documentation added/updated in README.md.
-- [ ] parameter descriptions added/updated in README.md
-      and comment-based help.
-- [ ] Comment-based help added/updated.
+- [ ] Documentation added/updated in README.md.
+- [ ] Comment-based help added/updated for all new/changed functions.
 - [ ] Localization strings added/updated in all localization files as appropriate.
-- [ ] Examples appropriately added/updated.
 - [ ] Unit tests added/updated.
 - [ ] New/changed code adheres to [PowerShell Style Guidelines](https://poshcode.gitbooks.io/powershell-practice-and-style/)
       and [Best Practices](https://poshcode.gitbooks.io/powershell-practice-and-style/Best-Practices/Introduction.html).
