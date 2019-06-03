@@ -47,7 +47,13 @@ Add-BuildTask Analyze EnsurePSScriptAnalyzer, {
 
 # Task for running all Pester tests within the project.
 Add-BuildTask Test EnsurePester, {
-    $Results = Invoke-Pester -Path $BuildRoot\tests -PassThru -Finalize:( $Env:CI -eq 'True' )
+    $Results = Invoke-Pester -Path "$BuildRoot\tests" -PassThru `
+        -OutputFormat 'NUnitXml' -OutputFile 'TestsResults.xml'
+    If ( $env:APPVEYOR -eq 'True' )
+    {
+        (New-Object 'System.Net.WebClient').UploadFile("https://ci.appveyor.com/api/testresults/nunit/$($env:APPVEYOR_JOB_ID)",
+            (Resolve-Path '.\TestsResults.xml'))
+    }
     Assert-Build($Results.FailedCount -eq 0) ('Failed "{0}" Pester tests.' -f $Results.FailedCount)
 }
 
