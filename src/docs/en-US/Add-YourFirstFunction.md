@@ -12,7 +12,7 @@ schema: 2.0.0
 
 ## SYNTAX
 
-```
+```powershell
 Add-YourFirstFunction [<CommonParameters>]
 ```
 
@@ -47,4 +47,3 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
-
