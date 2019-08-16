@@ -1,8 +1,7 @@
 {
     "files.exclude": {
         ".git": true,
-        "node_modules/": true,
-        "DscResource.Tests/": true
+        "node_modules/": true
     },
     "editor.formatOnSave": true,
     "powershell.codeFormatting.openBraceOnSameLine": false,
