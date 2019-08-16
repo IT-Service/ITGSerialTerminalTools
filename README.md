@@ -9,6 +9,32 @@
 ITGSerialTerminalTools предоставляет ряд командлет для работы с терминалами
 с последовательным интерфейсом.
 
+## Branches
+
+### master
+
+[![Build status](https://ci.appveyor.com/api/projects/status/jtiboqhwp6tqa6al/branch/master?svg=true)](https://ci.appveyor.com/project/IT-Service/ITGSerialTerminalTools/branch/master)
+[![codecov](https://codecov.io/gh/IT-Service/ITGSerialTerminalTools/branch/master/graph/badge.svg)](https://codecov.io/gh/IT-Service/ITGSerialTerminalTools/branch/master)
+[![PowerShell Gallery](https://img.shields.io/powershellgallery/v/ITGSerialTerminalTools.svg)](https://www.powershellgallery.com/packages/ITGSerialTerminalTools/)
+[![PowerShell Gallery](https://img.shields.io/powershellgallery/dt/ITGSerialTerminalTools.svg)](https://www.powershellgallery.com/packages/ITGSerialTerminalTools/)
+
+Эта ветка содержит последнюю версию.
+Не следует вносить изменения непосредственно в данную ветку.
+
+### develop
+
+[![Build status](https://ci.appveyor.com/api/projects/status/jtiboqhwp6tqa6al/branch/develop?svg=true)](https://ci.appveyor.com/project/IT-Service/xITGITGSerialTerminalToolsHyperV/branch/develop)
+[![codecov](https://codecov.io/gh/IT-Service/ITGSerialTerminalTools/branch/develop/graph/badge.svg)](https://codecov.io/gh/IT-Service/ITGSerialTerminalTools/branch/develop)
+
+Эта ветка содержит редакцию, используемую разработчиками.
+Именно в эту ветку предлагайте Pull Requests.
+develop периодически объединяется с веткой master и публикуется в
+[PowerShell Gallery](https://www.powershellgallery.com/).
+
+## Change log
+
+A full list of changes in each version can be found in the [change log](CHANGELOG.md).
+
 ## Getting Started
 
 ### PowerShell Gallery
@@ -54,7 +80,8 @@ Import-Module "<ProjectRoot>\src\ITGSerialTerminalTools.psd1" -Force
 
 ## Участие в разработке
 
-Доступны различные пути для участия в разработке модуля:
+Доступны различные пути для участия в разработке модуля
+([contributing guidelines](CONTRIBUTING.md)):
 
 - сообщите об ошибке, потребностях через issues.
 - участвуйте в обсуждениях в issue и pull requests, тестируйте заплатки и новые
