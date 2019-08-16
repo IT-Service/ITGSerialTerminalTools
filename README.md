@@ -1,24 +1,24 @@
-# ITGTools
+# ITGSerialTerminalTools
 
 PowerShell module for...
 
 ## Overview
 
-ITGTools provides... TODO lllllllllllllllllllllll
+ITGSerialTerminalTools provides... TODO lllllllllllllllllllllll
 
 ## Getting Started
 
 ### PowerShell Gallery
 
-Install ITGTools from the [PowerShell Gallery](https://www.powershellgallery.com/) using `Install-Module`.
+Install ITGSerialTerminalTools from the [PowerShell Gallery](https://www.powershellgallery.com/) using `Install-Module`.
 
 ```powershell
-Install-Module -Name ITGTools -Scope CurrentUser
+Install-Module -Name ITGSerialTerminalTools -Scope CurrentUser
 ```
 
 ### Local Build
 
-Use `Invoke-Build` to run a local build of ITGTools...
+Use `Invoke-Build` to run a local build of ITGSerialTerminalTools...
 
 ```powershell
 Invoke-Build -Task Build
@@ -27,7 +27,7 @@ Invoke-Build -Task Build
 Then you can import the built module into your PowerShell session.
 
 ```powershell
-Import-Module "<ProjectRoot>\build\ITGTools.psd1" -Force
+Import-Module "<ProjectRoot>\build\ITGSerialTerminalTools.psd1" -Force
 ```
 
 ## Usage
@@ -36,10 +36,10 @@ TODO
 
 ## Uninstalling
 
-Remove ITGTools from your system using `Uninstall-Module`.
+Remove ITGSerialTerminalTools from your system using `Uninstall-Module`.
 
 ```powershell
-Uninstall-Module -Name ITGTools
+Uninstall-Module -Name ITGSerialTerminalTools
 ```
 
 ## Importing From Source
@@ -47,7 +47,7 @@ Uninstall-Module -Name ITGTools
 If you are working on the module locally and want to import it into your PowerShell session without running through a compile/build, you can just import the module manifest directly from within the ```src``` directory.
 
 ```powershell
-Import-Module "<ProjectRoot>\src\ITGTools.psd1" -Force
+Import-Module "<ProjectRoot>\src\ITGSerialTerminalTools.psd1" -Force
 ```
 
 ## Contributions

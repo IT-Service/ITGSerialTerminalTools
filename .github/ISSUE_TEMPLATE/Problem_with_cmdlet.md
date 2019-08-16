@@ -57,5 +57,5 @@ about: If you have a problem, bug, or enhancement with a cmdlet in this module.
 #### Version of the module that was used ('dev' if using current dev branch)
 <!--
     To help with this information, please run this command:
-    Get-Module -Name 'ITGTools' -ListAvailable | ft Name,Version,Path
+    Get-Module -Name 'ITGSerialTerminalTools' -ListAvailable | ft Name,Version,Path
 -->

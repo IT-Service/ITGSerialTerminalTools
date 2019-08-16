@@ -1,5 +1,5 @@
-# ITGTools
-## about_ITGTools
+# ITGSerialTerminalTools
+## about_ITGSerialTerminalTools
 
 ddddddddddddddddddddddddddddddddddddddddddddd
 

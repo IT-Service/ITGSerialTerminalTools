@@ -1,5 +1,5 @@
 ﻿#
-# Манифест модуля для модуля "ITGTools".
+# Манифест модуля для модуля "ITGSerialTerminalTools".
 #
 # Создано: sergey.s.betke
 #
@@ -9,7 +9,7 @@
 @{
 
     # Файл модуля сценария или двоичного модуля, связанный с этим манифестом.
-    RootModule        = 'ITGTools.psm1'
+    RootModule        = 'ITGSerialTerminalTools.psm1'
 
     # Номер версии данного модуля.
     ModuleVersion     = '0.1.0'

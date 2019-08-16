@@ -1,6 +1,6 @@
 ---
-external help file: ITGTools-help.xml
-Module Name: ITGTools
+external help file: ITGSerialTerminalTools-help.xml
+Module Name: ITGSerialTerminalTools
 schema: 2.0.0
 ---
 

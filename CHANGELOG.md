@@ -1,3 +1,3 @@
-# Change log for ITGTools
+# Change log for ITGSerialTerminalTools
 
 ## Unreleased

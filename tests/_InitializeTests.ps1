@@ -1,5 +1,5 @@
 # Define common module info variables.
-$ModuleName = "ITGTools"
+$ModuleName = "ITGSerialTerminalTools"
 $ModuleManifestName = "$ModuleName.psd1"
 $ModuleManifestPath = "$PSScriptRoot\..\src\$ModuleManifestName"
 

@@ -1,10 +1,10 @@
 {
-  "name": "ITGTools",
+  "name": "ITGSerialTerminalTools",
   "version": "1.0.0",
   "license": "UNLICENSED",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/IT-Service/ITGTools.git"
+    "url": "git+https://github.com/IT-Service/ITGSerialTerminalTools.git"
   },
   "author": "Sergei S. Betke",
   "devDependencies": {
