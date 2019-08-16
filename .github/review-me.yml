@@ -1,0 +1,8 @@
+# https://github.com/z0al/probot-review-me
+when:
+  continuous-integration/appveyor/pr: success
+  wip: success
+  task-list-completed: success
+  license/cla: success
+
+label: needs review

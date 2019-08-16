@@ -1,0 +1,92 @@
+#---------------------------------#
+#      environment configuration  #
+#---------------------------------#
+
+version: 0.1.0.{build}
+environment:
+  PSGalleryAPIKey:
+    secure: lbDrWTaiRIaEUnUacZbYJHSaCGvAZfz8HsfoaE5uc5NuoebPCvptrlXzRTHN10v9
+
+skip_commits:
+  files:
+    - README.md
+    - CHANGELOG.md
+    - CODE_OF_CONDUCT.md
+    - CONTRIBUTING.md
+    - LICENSE
+
+install:
+  - ps: |
+      Write-Verbose -Message "PowerShell version $($PSVersionTable.PSVersion)" -Verbose
+      Install-Module -Name 'InvokeBuild' -Force
+      Install-Module -Name 'platyPS' -Force
+      Install-Module -Name 'Pester' -Force
+      Install-Module -Name 'PSScriptAnalyzer' -Force
+
+#---------------------------------#
+#      build configuration        #
+#---------------------------------#
+
+before_build:
+  - ps: |
+      Import-Module -Name 'InvokeBuild'
+      Import-Module -Name 'platyPS'
+      Import-Module -Name 'Pester'
+      Import-Module -Name 'PSScriptAnalyzer'
+
+build_script:
+  - ps: |
+      Invoke-Build -Task Build
+
+#---------------------------------#
+#      test configuration         #
+#---------------------------------#
+
+test_script:
+  - ps: |
+      Invoke-Build -Task Test
+      $res = Invoke-Pester -Path ".\Tests" -OutputFormat NUnitXml -OutputFile TestsResults.xml -PassThru
+      (New-Object 'System.Net.WebClient').UploadFile("https://ci.appveyor.com/api/testresults/nunit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\TestsResults.xml))
+      if ($res.FailedCount -gt 0) { throw "$($res.FailedCount) tests failed."}
+
+#---------------------------------#
+#     deployment configuration    #
+#---------------------------------#
+
+before_deploy:
+  - ps: >-
+      ${env:ReleaseNotes} = ( Import-Module (Get-ChildItem -Path $env:APPVEYOR_BUILD_FOLDER\build -Filter *.psd1 | Select-Object -First 1).FullName -Force -PassThru ).ReleaseNotes;
+
+deploy:
+  - provider: GitHub
+    tag: $(APPVEYOR_REPO_TAG_NAME)
+    release: $(APPVEYOR_REPO_TAG_NAME)
+    description: $(ReleaseNotes)
+    auth_token:
+      secure: H6HQrXUd6e0XBLfgdcrQ7T78c3+NTlMF92eBHy79j9W1n20zW8uJDNKzk0v82VM9
+    artifact:
+    draft: false
+    prerelease: false
+    force_update: false
+    on:
+      branch: master
+      APPVEYOR_REPO_TAG: true
+  - provider: GitHub
+    tag: $(APPVEYOR_REPO_TAG_NAME)
+    release: $(APPVEYOR_REPO_TAG_NAME)
+    description: $(ReleaseNotes)
+    auth_token:
+      secure: H6HQrXUd6e0XBLfgdcrQ7T78c3+NTlMF92eBHy79j9W1n20zW8uJDNKzk0v82VM9
+    artifact:
+    draft: true
+    prerelease: true
+    force_update: true
+
+deploy_script:
+  - ps: |
+      $ErrorActionPreference = 'Continue'
+      $deploy = ( $env:APPVEYOR_REPO_TAG -eq $true )
+      if ($deploy)
+      {
+        Invoke-Build -Task Publish
+      }

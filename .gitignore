@@ -1,1 +1,3 @@
-build/
+﻿build/
+node_modules
+TestsResults.xml
