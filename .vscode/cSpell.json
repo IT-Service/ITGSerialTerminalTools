@@ -45,6 +45,7 @@
         "\\.REQUIREDSCRIPTS",
         "\\.EXTERNALSCRIPTDEPENDENCIES",
         "\\.RELEASENOTES",
+        "командлет(а|ы|е|у|ах|ой|ами)",
         "gulpfile.js",
         "MSFT_",
         "microsoft/windowsservercore",

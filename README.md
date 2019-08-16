@@ -1,16 +1,20 @@
 # ITGSerialTerminalTools
 
-PowerShell module for...
+Модуль PowerShell с командлетами для работы с терминалами через последовательный
+интерфейс.
+Примеры использования - см. https://github.com/test-st-petersburg/network-config.
 
-## Overview
+## Обзор
 
-ITGSerialTerminalTools provides... TODO lllllllllllllllllllllll
+ITGSerialTerminalTools предоставляет ряд командлет для работы с терминалами
+с последовательным интерфейсом.
 
 ## Getting Started
 
 ### PowerShell Gallery
 
-Install ITGSerialTerminalTools from the [PowerShell Gallery](https://www.powershellgallery.com/) using `Install-Module`.
+Устанавливаем ITGSerialTerminalTools из [PowerShell Gallery](https://www.powershellgallery.com/)
+используя `Install-Module`.
 
 ```powershell
 Install-Module -Name ITGSerialTerminalTools -Scope CurrentUser
@@ -18,44 +22,41 @@ Install-Module -Name ITGSerialTerminalTools -Scope CurrentUser
 
 ### Local Build
 
-Use `Invoke-Build` to run a local build of ITGSerialTerminalTools...
+Используем `Invoke-Build` для запуска сборки ITGSerialTerminalTools...
 
 ```powershell
 Invoke-Build -Task Build
 ```
 
-Then you can import the built module into your PowerShell session.
+После чего возможно загрузить собранный модуль в Вашу сессию:
 
 ```powershell
 Import-Module "<ProjectRoot>\build\ITGSerialTerminalTools.psd1" -Force
 ```
 
-## Usage
+## Использование
 
-TODO
+TODO: описать
 
-## Uninstalling
+## Удаление модуля
 
-Remove ITGSerialTerminalTools from your system using `Uninstall-Module`.
+Удаление ITGSerialTerminalTools с использованием `Uninstall-Module`.
 
 ```powershell
 Uninstall-Module -Name ITGSerialTerminalTools
 ```
 
-## Importing From Source
-
-If you are working on the module locally and want to import it into your PowerShell session without running through a compile/build, you can just import the module manifest directly from within the ```src``` directory.
+## Загрузка модуля из исходных файлов
 
 ```powershell
 Import-Module "<ProjectRoot>\src\ITGSerialTerminalTools.psd1" -Force
 ```
 
-## Contributions
+## Участие в разработке
 
-Contributions are very welcome and there are many ways to contribute:
+Доступны различные пути для участия в разработке модуля:
 
-- Open a new bug report, feature request or just ask a question by creating a new issue.
-- Participate in issue and pull requests discussion threads, and test fixes or new features.
-- Submit your own fixes or features as a pull request.
-  - If your change is substantial, please open an issue for discussion beforehand.
-
+- сообщите об ошибке, потребностях через issues.
+- участвуйте в обсуждениях в issue и pull requests, тестируйте заплатки и новые
+  версии.
+- отправляйте Ваши заплатки или дополнительные возможности через pull request.
