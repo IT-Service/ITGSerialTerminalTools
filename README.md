@@ -23,7 +23,7 @@ ITGSerialTerminalTools предоставляет ряд командлет дл
 
 ### develop
 
-[![Build status](https://ci.appveyor.com/api/projects/status/jtiboqhwp6tqa6al/branch/develop?svg=true)](https://ci.appveyor.com/project/IT-Service/xITGITGSerialTerminalToolsHyperV/branch/develop)
+[![Build status](https://ci.appveyor.com/api/projects/status/jtiboqhwp6tqa6al/branch/develop?svg=true)](https://ci.appveyor.com/project/IT-Service/ITGSerialTerminalToolsHyperV/branch/develop)
 [![codecov](https://codecov.io/gh/IT-Service/ITGSerialTerminalTools/branch/develop/graph/badge.svg)](https://codecov.io/gh/IT-Service/ITGSerialTerminalTools/branch/develop)
 
 Эта ветка содержит редакцию, используемую разработчиками.
