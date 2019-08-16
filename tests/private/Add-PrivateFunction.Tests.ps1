@@ -2,7 +2,7 @@
 
 Describe 'Add-PrivateFunction' {
 
-  InModuleScope ITGTools {
+  InModuleScope ITGSerialTerminalTools {
 
     Context "When not passed any parameters." {
 
@@ -11,7 +11,7 @@ Describe 'Add-PrivateFunction' {
       }
 
     }
-  
+
   }
-  
+
 }

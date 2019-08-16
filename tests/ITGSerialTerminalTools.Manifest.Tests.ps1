@@ -2,10 +2,10 @@
 
 $Manifest = Import-PowerShellDataFile -Path $ModuleManifestPath
 
-Describe "ITGTools Module Manifest" {
-  
+Describe "ITGSerialTerminalTools Module Manifest" {
+
   Context "Manifest Validation." {
-    
+
     It "Has a valid manifest." {
       { Test-ModuleManifest -Path $ModuleManifestPath -ErrorAction Stop -WarningAction SilentlyContinue } | Should Not Throw
     }
@@ -24,7 +24,7 @@ Describe "ITGTools Module Manifest" {
     It 'Has a valid copyright.' {
       $Manifest.Copyright | Should Not BeNullOrEmpty
     }
-    
+
   }
 
 }

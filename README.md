@@ -1,61 +1,89 @@
-# ITGTools
+# ITGSerialTerminalTools
 
-PowerShell module for...
+Модуль PowerShell с командлетами для работы с терминалами через последовательный
+интерфейс.
+Примеры использования - см. https://github.com/test-st-petersburg/network-config.
 
-## Overview
+## Обзор
 
-ITGTools provides... TODO lllllllllllllllllllllll
+ITGSerialTerminalTools предоставляет ряд командлет для работы с терминалами
+с последовательным интерфейсом.
+
+## Branches
+
+### master
+
+[![Build status](https://ci.appveyor.com/api/projects/status/jtiboqhwp6tqa6al/branch/master?svg=true)](https://ci.appveyor.com/project/IT-Service/ITGSerialTerminalTools/branch/master)
+[![codecov](https://codecov.io/gh/IT-Service/ITGSerialTerminalTools/branch/master/graph/badge.svg)](https://codecov.io/gh/IT-Service/ITGSerialTerminalTools/branch/master)
+[![PowerShell Gallery](https://img.shields.io/powershellgallery/v/ITGSerialTerminalTools.svg)](https://www.powershellgallery.com/packages/ITGSerialTerminalTools/)
+[![PowerShell Gallery](https://img.shields.io/powershellgallery/dt/ITGSerialTerminalTools.svg)](https://www.powershellgallery.com/packages/ITGSerialTerminalTools/)
+
+Эта ветка содержит последнюю версию.
+Не следует вносить изменения непосредственно в данную ветку.
+
+### develop
+
+[![Build status](https://ci.appveyor.com/api/projects/status/jtiboqhwp6tqa6al/branch/develop?svg=true)](https://ci.appveyor.com/project/IT-Service/xITGITGSerialTerminalToolsHyperV/branch/develop)
+[![codecov](https://codecov.io/gh/IT-Service/ITGSerialTerminalTools/branch/develop/graph/badge.svg)](https://codecov.io/gh/IT-Service/ITGSerialTerminalTools/branch/develop)
+
+Эта ветка содержит редакцию, используемую разработчиками.
+Именно в эту ветку предлагайте Pull Requests.
+develop периодически объединяется с веткой master и публикуется в
+[PowerShell Gallery](https://www.powershellgallery.com/).
+
+## Change log
+
+A full list of changes in each version can be found in the [change log](CHANGELOG.md).
 
 ## Getting Started
 
 ### PowerShell Gallery
 
-Install ITGTools from the [PowerShell Gallery](https://www.powershellgallery.com/) using `Install-Module`.
+Устанавливаем ITGSerialTerminalTools из [PowerShell Gallery](https://www.powershellgallery.com/)
+используя `Install-Module`.
 
 ```powershell
-Install-Module -Name ITGTools -Scope CurrentUser
+Install-Module -Name ITGSerialTerminalTools -Scope CurrentUser
 ```
 
 ### Local Build
 
-Use `Invoke-Build` to run a local build of ITGTools...
+Используем `Invoke-Build` для запуска сборки ITGSerialTerminalTools...
 
 ```powershell
 Invoke-Build -Task Build
 ```
 
-Then you can import the built module into your PowerShell session.
+После чего возможно загрузить собранный модуль в Вашу сессию:
 
 ```powershell
-Import-Module "<ProjectRoot>\build\ITGTools.psd1" -Force
+Import-Module "<ProjectRoot>\build\ITGSerialTerminalTools.psd1" -Force
 ```
 
-## Usage
+## Использование
 
-TODO
+TODO: описать
 
-## Uninstalling
+## Удаление модуля
 
-Remove ITGTools from your system using `Uninstall-Module`.
+Удаление ITGSerialTerminalTools с использованием `Uninstall-Module`.
 
 ```powershell
-Uninstall-Module -Name ITGTools
+Uninstall-Module -Name ITGSerialTerminalTools
 ```
 
-## Importing From Source
-
-If you are working on the module locally and want to import it into your PowerShell session without running through a compile/build, you can just import the module manifest directly from within the ```src``` directory.
+## Загрузка модуля из исходных файлов
 
 ```powershell
-Import-Module "<ProjectRoot>\src\ITGTools.psd1" -Force
+Import-Module "<ProjectRoot>\src\ITGSerialTerminalTools.psd1" -Force
 ```
 
-## Contributions
+## Участие в разработке
 
-Contributions are very welcome and there are many ways to contribute:
+Доступны различные пути для участия в разработке модуля
+([contributing guidelines](CONTRIBUTING.md)):
 
-- Open a new bug report, feature request or just ask a question by creating a new issue.
-- Participate in issue and pull requests discussion threads, and test fixes or new features.
-- Submit your own fixes or features as a pull request.
-  - If your change is substantial, please open an issue for discussion beforehand.
-
+- сообщите об ошибке, потребностях через issues.
+- участвуйте в обсуждениях в issue и pull requests, тестируйте заплатки и новые
+  версии.
+- отправляйте Ваши заплатки или дополнительные возможности через pull request.
