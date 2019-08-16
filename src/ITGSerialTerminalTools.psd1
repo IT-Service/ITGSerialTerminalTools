@@ -9,31 +9,31 @@
 @{
 
     # Файл модуля сценария или двоичного модуля, связанный с этим манифестом.
-    RootModule        = 'ITGSerialTerminalTools.psm1'
+    RootModule           = 'ITGSerialTerminalTools.psm1'
 
     # Номер версии данного модуля.
-    ModuleVersion     = '0.1.0'
+    ModuleVersion        = '0.1.0'
 
     # Поддерживаемые выпуски PSEditions
     # CompatiblePSEditions = @()
 
     # Уникальный идентификатор данного модуля
-    GUID              = '41264569-79bd-4307-b370-1590eace97df'
+    GUID                 = '41264569-79bd-4307-b370-1590eace97df'
 
     # Автор данного модуля
-    Author            = 'sergey.s.betke'
+    Author               = 'sergey.s.betke'
 
     # Компания, создавшая данный модуль, или его поставщик
-    CompanyName       = 'XXXXXXX'
+    CompanyName          = 'ФБУ "Тест-С.-Петербург"'
 
     # Заявление об авторских правах на модуль
-    Copyright         = '(c) 2019 sergey.s.betke. Все права защищены.'
+    Copyright            = '(c) 2019 Sergey S. Betke. All rights reserved.'
 
     # Описание функций данного модуля
-    Description       = 'gggggggggggggggggggggg'
+    Description          = 'Командлеты поддержки взаимодействия с терминалами с последовательным интерфейсом.'
 
     # Минимальный номер версии обработчика Windows PowerShell, необходимой для работы данного модуля
-    PowerShellVersion = '5.1'
+    PowerShellVersion    = '5.1'
 
     # Имя узла Windows PowerShell, необходимого для работы данного модуля
     # PowerShellHostName = ''
@@ -69,16 +69,16 @@
     # NestedModules = @()
 
     # В целях обеспечения оптимальной производительности функции для экспорта из этого модуля не используют подстановочные знаки и не удаляют запись. Используйте пустой массив, если нет функций для экспорта.
-    FunctionsToExport = '*'
+    FunctionsToExport    = '*'
 
     # В целях обеспечения оптимальной производительности командлеты для экспорта из этого модуля не используют подстановочные знаки и не удаляют запись. Используйте пустой массив, если нет командлетов для экспорта.
-    CmdletsToExport   = '*'
+    CmdletsToExport      = '*'
 
     # Переменные для экспорта из данного модуля
-    VariablesToExport = '*'
+    VariablesToExport    = '*'
 
     # В целях обеспечения оптимальной производительности псевдонимы для экспорта из этого модуля не используют подстановочные знаки и не удаляют запись. Используйте пустой массив, если нет псевдонимов для экспорта.
-    AliasesToExport   = '*'
+    AliasesToExport      = '*'
 
     # Ресурсы DSC для экспорта из этого модуля
     # DscResourcesToExport = @()
@@ -90,24 +90,29 @@
     # FileList = @()
 
     # Личные данные для передачи в модуль, указанный в параметре RootModule/ModuleToProcess. Он также может содержать хэш-таблицу PSData с дополнительными метаданными модуля, которые используются в PowerShell.
-    PrivateData       = @{
+    PrivateData          = @{
 
         PSData = @{
 
             # Теги, применимые к этому модулю. Они помогают с обнаружением модуля в онлайн-коллекциях.
-            # Tags = @()
+            Tags         = @('Terminal')
 
             # URL-адрес лицензии для этого модуля.
-            # LicenseUri = ''
+            LicenseUri   = 'https://github.com/IT-Service/ITGSerialTerminalTools/blob/master/LICENSE'
 
             # URL-адрес главного веб-сайта для этого проекта.
-            # ProjectUri = ''
+            ProjectUri   = 'https://github.com/IT-Service/ITGSerialTerminalTools'
 
             # URL-адрес значка, который представляет этот модуль.
-            # IconUri = ''
+            # IconUri    = ''
 
             # Заметки о выпуске этого модуля
-            # ReleaseNotes = ''
+            ReleaseNotes = @'
+Fix bugs
+
+- Fix ExternalModuleDependencies
+
+'@
 
         } # Конец хэш-таблицы PSData
 
@@ -117,6 +122,6 @@
     # HelpInfoURI = ''
 
     # Префикс по умолчанию для команд, экспортированных из этого модуля. Переопределите префикс по умолчанию с помощью команды Import-Module -Prefix.
-    # DefaultCommandPrefix = ''
+    DefaultCommandPrefix = 'ITGSerialTerminal'
 
 }

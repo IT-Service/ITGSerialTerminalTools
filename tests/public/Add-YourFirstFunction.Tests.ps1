@@ -2,12 +2,12 @@
 
 Describe 'Add-YourFirstFunction' {
 
-  Context "When not passed any parameters." {
+    Context "When not passed any parameters." {
 
-    It 'Should write correct output.' {
-      Add-YourFirstFunction | Should Be "Your first function ran!"
+        It 'Should write correct output.' {
+            Add-ITGSerialTerminalYourFirstFunction | Should Be "Your first function ran!"
+        }
+
     }
 
-  }
-  
 }
