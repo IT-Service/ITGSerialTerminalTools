@@ -55,7 +55,7 @@ test_script:
 
 before_deploy:
   - ps: >-
-      ${env:ReleaseNotes} = ( Import-Module $env:APPVEYOR_BUILD_FOLDER/build -Force -PassThru ).ReleaseNotes;
+      ${env:ReleaseNotes} = ( Import-Module $env:APPVEYOR_BUILD_FOLDER\build\ -Force -PassThru ).ReleaseNotes;
 
 deploy:
   - provider: GitHub
