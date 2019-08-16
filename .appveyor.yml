@@ -55,7 +55,7 @@ test_script:
 
 before_deploy:
   - ps: >-
-      ${env:ReleaseNotes} = ( Import-Module $env:APPVEYOR_BUILD_FOLDER\build\ -Force -PassThru ).ReleaseNotes;
+      ${env:ReleaseNotes} = ( Import-Module (Get-ChildItem -Path $env:APPVEYOR_BUILD_FOLDER\build -Filter *.psd1 | Select-Object -First 1).FullName -Force -PassThru ).ReleaseNotes;
 
 deploy:
   - provider: GitHub
