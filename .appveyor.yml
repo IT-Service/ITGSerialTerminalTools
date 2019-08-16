@@ -10,6 +10,10 @@ environment:
 skip_commits:
   files:
     - README.md
+    - CHANGELOG.md
+    - CODE_OF_CONDUCT.md
+    - CONTRIBUTING.md
+    - LICENSE
 
 install:
   - ps: |
@@ -49,6 +53,10 @@ test_script:
 #      deployment configuration   #
 #---------------------------------#
 
+before_deploy:
+  - ps: >-
+      ${env:ReleaseNotes} = ( Import-Module $env:APPVEYOR_BUILD_FOLDER/build -Force -PassThru ).ReleaseNotes;
+
 deploy:
   - provider: GitHub
     tag: $(APPVEYOR_REPO_TAG_NAME)
@@ -63,6 +71,16 @@ deploy:
     on:
       branch: master
       APPVEYOR_REPO_TAG: true
+  - provider: GitHub
+    tag: $(APPVEYOR_REPO_TAG_NAME)
+    release: $(APPVEYOR_REPO_TAG_NAME)
+    description: $(ReleaseNotes)
+    auth_token:
+      secure: H6HQrXUd6e0XBLfgdcrQ7T78c3+NTlMF92eBHy79j9W1n20zW8uJDNKzk0v82VM9
+    artifact:
+    draft: true
+    prerelease: true
+    force_update: true
 
 deploy_script:
   - ps: |
