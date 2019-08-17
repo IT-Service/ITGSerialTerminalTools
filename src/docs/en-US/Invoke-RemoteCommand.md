@@ -4,17 +4,19 @@ Module Name: ITGSerialTerminalTools
 schema: 2.0.0
 ---
 
-# Wait-ExpectedMessage
+# Invoke-RemoteCommand
 
 ## SYNOPSIS
 
-Wait for PromptPattern string in console output.
+Invoke command on remote console.
 
 ## SYNTAX
 
 ```powershell
-Wait-ExpectedMessage `
+Invoke-RemoteCommand `
     -ConsoleStreamReader [System.IO.TextReader] `
+    -ConsoleStreamWriter [System.IO.TextWriter] `
+    -Command [String] `
     -PromptPattern [String] `
     -Timeout [System.TimeSpan] `
     -PassThru [Switch] `
@@ -23,7 +25,7 @@ Wait-ExpectedMessage `
 
 ## DESCRIPTION
 
-Wait for PromptPattern string in console output.
+Invoke command on remote console.
 With timeout.
 
 ## PARAMETERS
@@ -31,6 +33,14 @@ With timeout.
 ### ConsoleStreamReader
 
 Remote console stream reader.
+
+### ConsoleStreamWriter
+
+Remote console stream writer.
+
+### Command
+
+Command for remote console.
 
 ### PromptPattern
 
