@@ -8,6 +8,10 @@ test result
 [admin@router] >
 
 '@;
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute(
+            'PSUseDeclaredVarsMoreThanAssignments', '',
+            Scope = 'Function', Target = 'Reader'
+        )]
         $Reader = New-Object System.IO.StringReader( $TestConsoleOutputContent1 );
     }
 

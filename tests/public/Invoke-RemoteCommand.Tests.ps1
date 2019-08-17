@@ -15,7 +15,15 @@ test result
 ${Prompt}
 
 "@;
+                [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute(
+                    'PSUseDeclaredVarsMoreThanAssignments', '',
+                    Scope = 'Function', Target = 'Reader'
+                )]
                 $Reader = New-Object System.IO.StringReader( $TestConsoleOutputContent1 );
+                [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute(
+                    'PSUseDeclaredVarsMoreThanAssignments', '',
+                    Scope = 'Function', Target = 'Writer'
+                )]
                 $Writer = New-Object System.IO.StringWriter;
             }
             It 'Should return correct result.' {
@@ -49,7 +57,15 @@ test result
 ${Prompt}
 
 "@;
+                [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute(
+                    'PSUseDeclaredVarsMoreThanAssignments', '',
+                    Scope = 'Function', Target = 'Reader'
+                )]
                 $Reader = New-Object System.IO.StringReader( $TestConsoleOutputContent1 );
+                [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute(
+                    'PSUseDeclaredVarsMoreThanAssignments', '',
+                    Scope = 'Function', Target = 'Writer'
+                )]
                 $Writer = New-Object System.IO.StringWriter;
             }
             It 'Should throw timeout error.' {
