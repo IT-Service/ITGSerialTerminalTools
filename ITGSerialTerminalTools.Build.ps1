@@ -84,8 +84,10 @@ Add-BuildTask Compile {
         Write-Output "Found $($PrivateFunctions.Count) Private functions, will compile these into the root module file."
         Foreach ($PrivateFunction in $PrivateFunctions)
         {
-            Get-Content -Path $PrivateFunction.FullName | Add-Content -Path $DestinationModule
-            Add-Content -Path $DestinationModule -Value ""
+            Get-Content -Path $PrivateFunction.FullName `
+            | Out-File -FilePath $DestinationModule -Encoding utf8 -Force
+            "`r`n" `
+            | Out-File -FilePath $DestinationModule -Encoding utf8 -Append
         }
     }
 
@@ -94,14 +96,17 @@ Add-BuildTask Compile {
         Write-Output "Found $($PublicFunctions.Count) Public functions, will compile these into the root module file."
         Foreach ($PublicFunction in $PublicFunctions)
         {
-            Get-Content -Path $PublicFunction.FullName | Add-Content -Path $DestinationModule
-            Add-Content -Path $DestinationModule -Value ""
+            Get-Content -Path $PublicFunction.FullName `
+            | Out-File -FilePath $DestinationModule -Encoding utf8 -Append
+            "`r`n" `
+            | Out-File -FilePath $DestinationModule -Encoding utf8 -Append
         }
     }
 
-    $PublicFunctionNames = $PublicFunctions | Select-String -Pattern 'function (\w+-\w+) {' -AllMatches | ForEach-Object { $_.Matches.Groups[1].Value }
+    $PublicFunctionNames = $PublicFunctions | Select-String -Pattern 'Function (\w+-\w+)' -AllMatches | ForEach-Object { $_.Matches.Groups[1].Value }
     Write-Output "Making $($PublicFunctionNames.Count) functions available via Export-ModuleMember"
-    "Export-ModuleMember -Function {0}" -f ($PublicFunctionNames -join ', ') | Add-Content $DestinationModule
+    "Export-ModuleMember -Function {0}" -f ($PublicFunctionNames -join ', ') `
+    | Out-File -FilePath $DestinationModule -Encoding utf8 -Append
 
     Copy-Item -Path $Module.FullName -Destination $BuildDirectory
 
