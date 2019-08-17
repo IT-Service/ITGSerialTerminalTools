@@ -3,7 +3,7 @@
 #
 # Создано: sergey.s.betke
 #
-# Дата создания: 31.05.2019
+# Дата создания: 18.08.2019
 #
 
 @{
@@ -12,7 +12,7 @@
     RootModule           = 'ITGSerialTerminalTools.psm1'
 
     # Номер версии данного модуля.
-    ModuleVersion        = '0.1.0'
+    ModuleVersion        = '0.2.0'
 
     # Поддерживаемые выпуски PSEditions
     # CompatiblePSEditions = @()
