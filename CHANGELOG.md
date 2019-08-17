@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.2.0
+
 - new features:
 
   - function Wait-ExpectedMessage
