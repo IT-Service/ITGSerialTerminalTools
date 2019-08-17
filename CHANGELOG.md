@@ -5,3 +5,4 @@
 - new features:
 
   - function Wait-ExpectedMessage
+  - function Invoke-RemoteCommand
