@@ -16,6 +16,7 @@ schema: 2.0.0
 Wait-ExpectedMessage `
     -ConsoleStreamReader [System.IO.TextReader] `
     -PromptPattern [String] `
+    -Timeout [System.TimeSpan] `
     -PassThru [Switch] `
     [<CommonParameters>]
 ```
@@ -49,7 +50,7 @@ Wait-ExpectedMessage `
 -Debug, -ErrorAction, -ErrorVariable,
 -InformationAction, -InformationVariable, -OutVariable, -OutBuffer,
 -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+См. about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

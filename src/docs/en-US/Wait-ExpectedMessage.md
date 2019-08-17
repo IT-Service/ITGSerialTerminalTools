@@ -16,6 +16,7 @@ Wait for PromptPattern string in console output.
 Wait-ExpectedMessage `
     -ConsoleStreamReader [System.IO.TextReader] `
     -PromptPattern [String] `
+    -Timeout [System.TimeSpan] `
     -PassThru [Switch] `
     [<CommonParameters>]
 ```
