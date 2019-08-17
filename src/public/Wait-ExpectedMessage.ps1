@@ -1,5 +1,4 @@
-﻿# Public Function Example - Replace With Your Function
-Function Wait-ExpectedMessage
+﻿Function Wait-ExpectedMessage
 {
 
     <#
