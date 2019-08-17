@@ -147,20 +147,19 @@ Add-BuildTask . Build
 
 # Task for publishing the built module to the PowerShell Gallery, which will also run a build.
 Add-BuildTask Publish Build, {
-    $BuildDirectory = "$BuildRoot\build"
-    $Module = Get-ChildItem -Path $BuildDirectory -Filter *.psd1 | Select-Object -First 1
-    $Manifest = Import-PowerShellDataFile -Path $Module.FullName
-    $ModuleVersion = $Manifest.ModuleVersion
+    $ModulePath = (
+        Get-ChildItem -Path "$BuildRoot\build" -Filter *.psd1 `
+        | Select-Object -First 1 `
+    ).FullName
+    $Module = Import-Module $ModulePath -Force -PassThru
 
     Assert-Build ($env:PSGalleryAPIKey) "PowerShell Gallery API Key environment variable not found!"
     Try
     {
-        $Params = @{
-            Path        = "$BuildDirectory"
-            NuGetApiKey = $env:PSGalleryAPIKey
-            ErrorAction = "Stop"
-        }
-        Publish-Module @Params
+        Publish-Module `
+            -Name $ModulePath `
+            -NuGetApiKey $env:PSGalleryAPIKey `
+            -ErrorAction 'Stop'
         Write-Output "$($Module.BaseName) $ModuleVersion published to the PowerShell Gallery!"
     }
     Catch

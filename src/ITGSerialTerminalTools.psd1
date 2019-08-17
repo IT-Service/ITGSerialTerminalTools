@@ -108,9 +108,10 @@
 
             # Заметки о выпуске этого модуля
             ReleaseNotes = @'
-Fix bugs
+- new features:
 
-- Fix ExternalModuleDependencies
+    - function Wait-ExpectedMessage
+    - function Invoke-RemoteCommand
 
 '@
 
