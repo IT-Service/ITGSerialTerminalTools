@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+## 0.2.4
+
+- fix:
+
+  - fix different ErrorAction value support
+
 ## 0.2.1
 
 - fix:
