@@ -36,8 +36,7 @@
 
         # Таймаут
         [Parameter()]
-        [AllowNull()]
-        [System.TimeSpan] $Timeout = $null
+        [System.TimeSpan] $Timeout = 0
     )
 
     $Local:ErrorActionPreference = [System.Management.Automation.ActionPreference]::Stop;
@@ -46,13 +45,9 @@
     $VerboseBuffer = '';
 
     $Timer = New-Object Diagnostics.StopWatch;
-    if ( $null -ne $Timeout )
+    if ( $Timeout -ne 0 )
     {
         $Timer.Start();
-    }
-    else
-    {
-        $Timeout = New-Object System.TimeSpan( 0 );
     };
 
     $RegExp = New-Object System.Text.RegularExpressions.Regex( $PromptPattern );
