@@ -38,7 +38,7 @@ Waiting string pattern (regexp). Default - `'\[.+?\] >'`.
 
 ### Timeout
 
-Timeout duration. Default - 30 sec.
+Timeout duration. Default - disabled.
 
 ### PassThru
 

@@ -108,10 +108,10 @@
 
             # Заметки о выпуске этого модуля
             ReleaseNotes = @'
-- new features:
+- fix:
 
-    - function Wait-ExpectedMessage
-    - function Invoke-RemoteCommand
+    - remove Wait-ExpectedMessage and Invoke-RemoteCommand positional parameters
+    - disable Timeout by default
 
 '@
 
