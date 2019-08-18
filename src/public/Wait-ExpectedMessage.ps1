@@ -39,63 +39,71 @@
         [System.TimeSpan] $Timeout = 0
     )
 
-    $Local:ErrorActionPreference = [System.Management.Automation.ActionPreference]::Stop;
-
-    $Buffer = '';
-    $VerboseBuffer = '';
-
-    $Timer = New-Object Diagnostics.StopWatch;
-    if ( $Timeout -ne 0 )
+    try
     {
-        $Timer.Start();
-    };
 
-    $RegExp = New-Object System.Text.RegularExpressions.Regex( $PromptPattern );
+        $Buffer = '';
+        $VerboseBuffer = '';
 
-    do
-    {
-        $StreamData = $ConsoleStreamReader.Read();
-        while ( ( $StreamData -eq -1 ) -and ( $Timer.Elapsed -le $Timeout ) )
+        $Timer = New-Object Diagnostics.StopWatch;
+        if ( $Timeout -ne 0 )
         {
-            Start-Sleep -Milliseconds 50;
+            $Timer.Start();
+        };
+
+        $RegExp = New-Object System.Text.RegularExpressions.Regex( $PromptPattern );
+
+        do
+        {
             $StreamData = $ConsoleStreamReader.Read();
-        };
-        if ( $Timer.Elapsed -gt $Timeout )
-        {
-            Write-Error -Exception ( New-Object System.TimeoutException );
-        };
-        switch ( [char]$StreamData )
-        {
-            "`r"
+            while ( ( $StreamData -eq -1 ) -and ( $Timer.Elapsed -le $Timeout ) )
             {
-                if ( $VerboseBuffer )
+                Start-Sleep -Milliseconds 50;
+                $StreamData = $ConsoleStreamReader.Read();
+            };
+            if ( $Timer.Elapsed -gt $Timeout )
+            {
+                throw ( New-Object System.TimeoutException );
+            };
+            switch ( [char]$StreamData )
+            {
+                "`r"
                 {
-                    Write-Verbose $VerboseBuffer;
-                    $VerboseBuffer = "";
-                };
+                    if ( $VerboseBuffer )
+                    {
+                        Write-Verbose $VerboseBuffer;
+                        $VerboseBuffer = "";
+                    };
+                }
+                "`n"
+                {
+                }
+                Default
+                {
+                    $VerboseBuffer += [char] $StreamData;
+                }
             }
-            "`n"
-            {
-            }
-            Default
-            {
-                $VerboseBuffer += [char] $StreamData;
-            }
-        }
-        $Buffer += [char] $StreamData;
-        $SearchResults = $RegExp.Match( $Buffer );
-    } while ( -not $SearchResults.Success );
+            $Buffer += [char] $StreamData;
+            $SearchResults = $RegExp.Match( $Buffer );
+        } while ( -not $SearchResults.Success );
 
-    if ( $VerboseBuffer )
+        if ( $VerboseBuffer )
+        {
+            Write-Verbose $VerboseBuffer;
+            $VerboseBuffer = "";
+        };
+
+        $Result = $Buffer.Substring( 0, $SearchResults.Index );
+        $Buffer = $Buffer.Remove( 0, $SearchResults.Index + $SearchResults.Length );
+        if ( $PassThru )
+        {
+            return $Result;
+        };
+
+    }
+    catch
     {
-        Write-Verbose $VerboseBuffer;
-        $VerboseBuffer = "";
+        Write-Error -ErrorRecord $_;
     };
 
-    $Result = $Buffer.Substring( 0, $SearchResults.Index );
-    $Buffer = $Buffer.Remove( 0, $SearchResults.Index + $SearchResults.Length );
-    if ( $PassThru )
-    {
-        return $Result;
-    };
 }

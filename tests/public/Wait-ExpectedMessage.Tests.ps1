@@ -15,8 +15,8 @@ test result
         $Reader = New-Object System.IO.StringReader( $TestConsoleOutputContent1 );
     }
 
-    Context "When not passed prompt template." {
-        It 'Should return correct result.' {
+    Context "When not passed prompt template" {
+        It 'should return correct result' {
             Wait-ITGSerialTerminalExpectedMessage `
                 -ConsoleStreamReader $Reader `
                 -Timeout ( New-Object System.TimeSpan( 0, 0, 1 ) ) `
@@ -25,8 +25,8 @@ test result
         }
     }
 
-    Context "When passed correct prompt template." {
-        It 'Should return correct result.' {
+    Context "When passed correct prompt template" {
+        It 'should return correct result' {
             Wait-ITGSerialTerminalExpectedMessage `
                 -ConsoleStreamReader $Reader `
                 -PromptPattern '\[.+?\] >' `
@@ -36,15 +36,29 @@ test result
         }
     }
 
-    Context "When console output does not contains prompt template." {
-        It 'Should throw timeout error.' {
+    Context "When console output does not contains prompt template and ErrorAction = 'Stop'" {
+        It 'should throw timeout error' {
             {
                 Wait-ITGSerialTerminalExpectedMessage `
                     -ConsoleStreamReader $Reader `
                     -PromptPattern '\[notadmin\] >' `
                     -Timeout ( New-Object System.TimeSpan( 0, 0, 1 ) ) `
+                    -ErrorAction 'Stop' `
                     -PassThru `
             } | Should -Throw
+        }
+    }
+
+    Context "When console output does not contains prompt template and ErrorAction != 'Stop'" {
+        It 'should does not throw timeout error, but should write error to error stream' {
+            {
+                Wait-ITGSerialTerminalExpectedMessage `
+                    -ConsoleStreamReader $Reader `
+                    -PromptPattern '\[notadmin\] >' `
+                    -Timeout ( New-Object System.TimeSpan( 0, 0, 1 ) ) `
+                    -ErrorAction 'Continue' `
+                    -PassThru `
+            } | Should -Not -Throw
         }
     }
 
