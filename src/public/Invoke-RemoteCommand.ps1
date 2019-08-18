@@ -49,8 +49,7 @@
 
         # Таймаут
         [Parameter()]
-        [AllowNull()]
-        [System.TimeSpan] $Timeout = $null
+        [System.TimeSpan] $Timeout = 0
     )
 
     $Local:ErrorActionPreference = [System.Management.Automation.ActionPreference]::Stop;
