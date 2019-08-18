@@ -16,22 +16,11 @@
     [CmdletBinding()]
 
     Param(
-        # Читатель потока удалённой консоли
-        [Parameter(
-            Mandatory = $true
-        )]
-        [System.IO.TextReader] $ConsoleStreamReader,
-
-        # Писатель потока удалённой консоли
-        [Parameter(
-            Mandatory = $true
-        )]
-        [System.IO.TextWriter] $ConsoleStreamWriter,
-
         # Шаблон строки, ожидаемой в выводе удалённой консоли
         [Parameter(
             Mandatory = $true,
-            ValueFromPipeLine = $true
+            ValueFromPipeLine = $true,
+            Position = 0
         )]
         [AllowEmptyString()]
         [String] $Command,
@@ -41,12 +30,27 @@
         [ValidateNotNullOrEmpty()]
         [string] $PromptPattern = '\[.+?\] >',
 
+        # Читатель потока удалённой консоли
+        [Parameter(
+            Mandatory = $true
+        )]
+        [ValidateNotNull()]
+        [System.IO.TextReader] $ConsoleStreamReader,
+
+        # Писатель потока удалённой консоли
+        [Parameter(
+            Mandatory = $true
+        )]
+        [ValidateNotNull()]
+        [System.IO.TextWriter] $ConsoleStreamWriter,
+
         # Ключ, определяющий необходимость возврата вывода удалённой консоли
         [Switch] $PassThru,
 
         # Таймаут
         [Parameter()]
-        [System.TimeSpan] $Timeout = ( New-Object System.TimeSpan( 0, 0, 30 ) )
+        [AllowNull()]
+        [System.TimeSpan] $Timeout = $null
     )
 
     $Local:ErrorActionPreference = [System.Management.Automation.ActionPreference]::Stop;
