@@ -12,7 +12,7 @@
     RootModule           = 'ITGSerialTerminalTools.psm1'
 
     # Номер версии данного модуля.
-    ModuleVersion        = '0.2.3'
+    ModuleVersion        = '0.2.4'
 
     # Поддерживаемые выпуски PSEditions
     # CompatiblePSEditions = @()
@@ -110,8 +110,7 @@
             ReleaseNotes = @'
 - fix:
 
-    - remove Wait-ExpectedMessage and Invoke-RemoteCommand positional parameters
-    - disable Timeout by default
+    - fix different ErrorAction value support
 
 '@
 

@@ -52,25 +52,35 @@
         [System.TimeSpan] $Timeout = 0
     )
 
-    $Local:ErrorActionPreference = [System.Management.Automation.ActionPreference]::Stop;
+    try
+    {
 
-    $ConsoleStreamWriter.WriteLine( $Command );
-    Write-Verbose ">>>> $Command";
+        $ConsoleStreamWriter.WriteLine( $Command );
+        Write-Verbose ">>>> $Command";
 
-    $EscapedCommand = [System.Text.RegularExpressions.Regex]::Escape( $Command );
-    Wait-ExpectedMessage `
-        -ConsoleStreamReader $ConsoleStreamReader `
-        -PromptPattern "$PromptPattern\s*$EscapedCommand" `
-        -Timeout $Timeout;
-    Wait-ExpectedMessage `
-        -ConsoleStreamReader $ConsoleStreamReader `
-        -PromptPattern "$PromptPattern\s*$EscapedCommand" `
-        -Timeout $Timeout;
+        $EscapedCommand = [System.Text.RegularExpressions.Regex]::Escape( $Command );
+        Wait-ExpectedMessage `
+            -ConsoleStreamReader $ConsoleStreamReader `
+            -PromptPattern "$PromptPattern\s*$EscapedCommand" `
+            -Timeout $Timeout `
+            -ErrorAction 'Stop';
+        Wait-ExpectedMessage `
+            -ConsoleStreamReader $ConsoleStreamReader `
+            -PromptPattern "$PromptPattern\s*$EscapedCommand" `
+            -Timeout $Timeout `
+            -ErrorAction 'Stop';
 
-    return Wait-ExpectedMessage `
-        -ConsoleStreamReader $ConsoleStreamReader `
-        -PromptPattern $PromptPattern `
-        -Timeout $Timeout `
-        -PassThru:$PassThru;
+        return Wait-ExpectedMessage `
+            -ConsoleStreamReader $ConsoleStreamReader `
+            -PromptPattern $PromptPattern `
+            -PassThru:$PassThru `
+            -Timeout $Timeout `
+            -ErrorAction 'Stop';
+
+    }
+    catch
+    {
+        Write-Error -ErrorRecord $_;
+    };
 
 }
