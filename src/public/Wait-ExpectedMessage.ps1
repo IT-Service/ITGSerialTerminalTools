@@ -45,7 +45,6 @@
     $Buffer = '';
     $VerboseBuffer = '';
 
-    $Timer = [Diagnostics.StopWatch]::StartNew();
     $Timer = New-Object Diagnostics.StopWatch;
     if ( $null -ne $Timeout )
     {
