@@ -17,21 +17,27 @@
     [CmdletBinding()]
 
     Param(
-        # Читатель потока удалённой консоли
-        [Parameter( Mandatory = $true )]
-        [System.IO.TextReader] $ConsoleStreamReader,
-
         # Шаблон строки, ожидаемой в выводе удалённой консоли
-        [Parameter()]
+        [Parameter(
+            Position = 0
+        )]
         [ValidateNotNullOrEmpty()]
         [string] $PromptPattern = '\[.+?\] >',
+
+        # Читатель потока удалённой консоли
+        [Parameter(
+            Mandatory = $true
+        )]
+        [ValidateNotNull()]
+        [System.IO.TextReader] $ConsoleStreamReader,
 
         # Ключ, определяющий необходимость возврата вывода удалённой консоли
         [Switch] $PassThru,
 
         # Таймаут
         [Parameter()]
-        [System.TimeSpan] $Timeout = ( New-Object System.TimeSpan( 0, 0, 30 ) )
+        [AllowNull()]
+        [System.TimeSpan] $Timeout = $null
     )
 
     $Local:ErrorActionPreference = [System.Management.Automation.ActionPreference]::Stop;
@@ -40,18 +46,27 @@
     $VerboseBuffer = '';
 
     $Timer = [Diagnostics.StopWatch]::StartNew();
+    $Timer = New-Object Diagnostics.StopWatch;
+    if ( $null -ne $Timeout )
+    {
+        $Timer.Start();
+    }
+    else
+    {
+        $Timeout = New-Object System.TimeSpan( 0 );
+    };
 
     $RegExp = New-Object System.Text.RegularExpressions.Regex( $PromptPattern );
 
     do
     {
         $StreamData = $ConsoleStreamReader.Read();
-        while ( ( $StreamData -eq -1 ) -and ( $Timer.Elapsed -lt $Timeout ) )
+        while ( ( $StreamData -eq -1 ) -and ( $Timer.Elapsed -le $Timeout ) )
         {
             Start-Sleep -Milliseconds 50;
             $StreamData = $ConsoleStreamReader.Read();
         };
-        if ( $Timer.Elapsed -ge $Timeout )
+        if ( $Timer.Elapsed -gt $Timeout )
         {
             Write-Error -Exception ( New-Object System.TimeoutException );
         };

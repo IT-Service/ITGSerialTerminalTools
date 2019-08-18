@@ -19,6 +19,7 @@ test result
         It 'Should return correct result.' {
             Wait-ITGSerialTerminalExpectedMessage `
                 -ConsoleStreamReader $Reader `
+                -Timeout ( New-Object System.TimeSpan( 0, 0, 1 ) ) `
                 -PassThru `
             | Should Be "test result`r`n"
         }
@@ -29,6 +30,7 @@ test result
             Wait-ITGSerialTerminalExpectedMessage `
                 -ConsoleStreamReader $Reader `
                 -PromptPattern '\[.+?\] >' `
+                -Timeout ( New-Object System.TimeSpan( 0, 0, 1 ) ) `
                 -PassThru `
             | Should Be "test result`r`n"
         }

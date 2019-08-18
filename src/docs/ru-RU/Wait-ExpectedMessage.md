@@ -38,7 +38,7 @@ Wait-ExpectedMessage `
 
 ### Timeout
 
-Таймаут. По умолчанию - 30 sec.
+Таймаут. По умолчанию - без таймаута.
 
 ### PassThru
 
