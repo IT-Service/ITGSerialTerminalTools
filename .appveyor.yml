@@ -2,7 +2,7 @@
 #      environment configuration  #
 #---------------------------------#
 
-version: 0.2.1.{build}
+version: 0.2.2.{build}
 environment:
   PSGalleryAPIKey:
     secure: lbDrWTaiRIaEUnUacZbYJHSaCGvAZfz8HsfoaE5uc5NuoebPCvptrlXzRTHN10v9
