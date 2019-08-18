@@ -12,7 +12,7 @@
     RootModule           = 'ITGSerialTerminalTools.psm1'
 
     # Номер версии данного модуля.
-    ModuleVersion        = '0.2.1'
+    ModuleVersion        = '0.2.2'
 
     # Поддерживаемые выпуски PSEditions
     # CompatiblePSEditions = @()
